@@ -1,0 +1,334 @@
+@import '../../components/index.less';
+@box-height: 82%;
+@box-top: 100px;
+@window-width: 1200px;
+
+#portalLayout.portal-layout-wrapper {
+  .ant-layout-footer {
+    background: none;
+  }
+
+  height: 100vh;
+  position: relative;
+  user-select: none;
+
+  .container {
+    width: 100%;
+    min-height: 100vh;
+    background: url(~@/assets/portalClient/index/index_bg.jpg) no-repeat top/cover;
+    // background-size: 100%;
+    padding: 20px 0 0px;
+    position: relative;
+    z-index: 0;
+
+    a {
+      text-decoration: none;
+    }
+
+    .top {
+      width: @window-width;
+      margin: 0 auto;
+      z-index: 9;
+
+      .header-box {
+        height: 175px;
+        line-height: 175px;
+        position: relative;
+        text-align: center;
+        .logout {
+          position: relative;
+          z-index: 10;
+          height: 20px;
+          line-height: 20px;
+          span {
+            font-size: 14px;
+            transition: all 0.2s;
+          }
+          color: #fff;
+        }
+        .header-bg {
+          width: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: -1;
+        }
+
+        .title {
+          font-size: 24px;
+          color: #fff;
+          font-family: '微软雅黑';
+          font-weight: bold;
+          // vertical-align: top;
+          letter-spacing: 1px;
+          // word-spacing: ;
+        }
+        .portalAction {
+          position: absolute;
+          right: 10px;
+          top: 40px;
+        }
+        .login-btn {
+          width: 60px;
+          height: 40px;
+          text-align: center;
+          line-height: 40px;
+          color: rgba(255, 255, 255, 0.7);
+          background-image: linear-gradient(90deg, #2565f7 0%, transparent 100%);
+          cursor: pointer;
+          font-size: 14px;
+          font-family: '微软雅黑';
+          transition: all 0.5s;
+          -webkit-transition: all 0.5s;
+          position: absolute;
+          right: 10px;
+          top: 48px;
+          &::before {
+            position: absolute;
+            top: 0px;
+            left: -40px;
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent; /*这行去掉也行*/
+            border-bottom: 20px solid transparent;
+            border-right: 20px solid #2565f7;
+            border-left: 20px solid transparent;
+          }
+          &:hover {
+            width: 80px;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .content {
+      @content-margin-top: 150px;
+      @function-height: 200px;
+      @button-box-height: 270px;
+      width: @window-width;
+      // height: calc(@box-height - 144px);
+      margin: 0px auto;
+      text-align: center;
+      .box-hover {
+        cursor: pointer;
+        transition: all 0.5s;
+        &:hover {
+          top: -10px !important;
+          .word {
+            .title {
+              color: rgba(255, 255, 255) !important;
+            }
+            .desc {
+              color: rgba(255, 255, 255, 0.7) !important;
+            }
+          }
+        }
+      }
+      .swiper-box {
+        // width: 100%;
+        margin: 130px 0px 0px !important;
+        .col-box {
+          position: relative;
+          height: @button-box-height;
+          &:last-child {
+            .word {
+              transform: rotate(3deg);
+              -ms-transform: rotate(3deg);
+              -moz-transform: rotate(3deg);
+              -webkit-transform: rotate(3deg);
+              -o-transform: rotate(3deg);
+              margin-top: calc(@button-box-height - 78px);
+            }
+          }
+          &:first-child {
+            .word {
+              transform: rotate(-3deg);
+              -ms-transform: rotate(-3deg);
+              -moz-transform: rotate(-3deg);
+              -webkit-transform: rotate(-3deg);
+              -o-transform: rotate(-3deg);
+              margin-top: calc(@button-box-height - 78px);
+            }
+          }
+        }
+        .button-box {
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          left: 0px;
+          top: 0px;
+
+          img {
+            position: absolute;
+            top: -21px;
+            left: 0px;
+            width: 100%;
+            height: calc(@button-box-height * 2);
+            z-index: -1;
+            padding: 0 10px;
+          }
+
+          .word {
+            margin-top: calc(@button-box-height - 88px);
+            text-align: center;
+            .title {
+              font-size: 18px;
+              letter-spacing: 1px;
+              margin-bottom: 0px;
+              color: rgba(255, 255, 255, 0.7);
+            }
+
+            .desc {
+              color: rgba(255, 255, 255, 0.3);
+              font-size: 12px;
+              letter-spacing: 1px;
+              margin-bottom: 8px;
+              // &::after {
+              //   content: '';
+              //   display: block;
+              //   width: 80px;
+              //   height: 1px;
+              //   background-color: @primary-color;
+              //   margin-top: 2px;
+              // }
+            }
+          }
+        }
+      }
+      .nav-button {
+        @nav-button-height: 35px;
+        width: 100%;
+        height: @button-box-height;
+        text-align: center;
+        padding-top: calc((@button-box-height - @nav-button-height) / 2);
+        .button-box {
+          display: inline-block;
+          position: relative;
+          .button {
+            display: inline-block;
+            margin: 0 16px;
+            height: @nav-button-height;
+            line-height: @nav-button-height;
+            width: 90px;
+            background-color: #152d75;
+            border: solid 1px #3fa8c5;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            position: relative;
+            &:hover {
+              color: #fff;
+            }
+            .top-left {
+              display: inline-block;
+              width: 6px;
+              height: 6px;
+              position: absolute;
+              top: -5px;
+              left: -5px;
+              background: url(~@/assets/portalClient/index/zhuangshi_07.png) no-repeat center/contain;
+            }
+            .top-right {
+              display: inline-block;
+              width: 6px;
+              height: 6px;
+              position: absolute;
+              top: -5px;
+              right: -5px;
+              background: url(~@/assets/portalClient/index/zhuangshi_09.png) no-repeat center/contain;
+            }
+            .bottom-left {
+              display: inline-block;
+              width: 6px;
+              height: 6px;
+              position: absolute;
+              bottom: -5px;
+              left: -5px;
+              background: url(~@/assets/portalClient/index/zhuangshi_21.png) no-repeat center/contain;
+            }
+            .bottom-right {
+              display: inline-block;
+              width: 6px;
+              height: 6px;
+              position: absolute;
+              bottom: -5px;
+              right: -5px;
+              background: url(~@/assets/portalClient/index/zhuangshi_22.png) no-repeat center/contain;
+            }
+          }
+          &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -329px;
+            top: calc((@nav-button-height - 20px) / 2);
+            width: 329px;
+            height: 20px;
+            background: url(~@/assets/portalClient/index/zhuangshi_14.png) no-repeat center/contain;
+          }
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            right: -329px;
+            top: calc((@nav-button-height - 20px) / 2);
+            width: 329px;
+            height: 20px;
+            background: url(~@/assets/portalClient/index/zhuangshi_17.png) no-repeat center/contain;
+          }
+        }
+      }
+    }
+
+    .header-left {
+      float: left;
+    }
+
+    .header-right {
+      float: right;
+    }
+
+    .clearfix::after {
+      content: '';
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+
+    .clearfix {
+      *zoom: 1;
+      /*ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行*/
+    }
+
+    .footer {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      padding: 0 16px;
+      margin: 48px 0 24px;
+      text-align: center;
+      z-index: 9;
+
+      .links {
+        margin-bottom: 8px;
+        font-size: 14px;
+
+        a {
+          color: #fff;
+          transition: all 0.3s;
+
+          &:not(:last-child) {
+            margin-right: 40px;
+          }
+        }
+      }
+
+      .copyright {
+        color: #fff;
+        font-size: 14px;
+      }
+    }
+  }
+}

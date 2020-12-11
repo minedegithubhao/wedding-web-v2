@@ -1,0 +1,42 @@
+@import '~ant-design-vue/lib/style/index';
+
+// The prefix to use on all css classes from ant-pro.
+@ant-pro-prefix: ant-pro;
+@ant-global-sider-zindex: 106;
+@ant-global-header-zindex: 105;
+
+// table action 按钮icon 样式
+.icon-action {
+  &.add {
+    color: #faad14;
+    &::after {
+      content: '\65b0\589e'; // 新增
+    }
+  }
+  &.edit {
+    // color: #7ab45f;
+    color: #62aa40;
+    &::after {
+      content: '\7f16\8f91'; // 修改
+    }
+  }
+  &.delete {
+    // color: #e2a9a1;
+    color: #e06151;
+    &::after {
+      content: '\5220\9664'; // 删除
+    }
+  }
+  &.more {
+    color: #188ffd;
+    &::after {
+      content: '\66f4\591a\64cd\4f5c'; // 更多操作
+    }
+  }
+  &.other {
+    color: #188ffd;
+    &::after {
+      content: var(--content);
+    }
+  }
+}
